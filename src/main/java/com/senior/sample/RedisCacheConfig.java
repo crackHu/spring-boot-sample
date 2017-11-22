@@ -28,7 +28,7 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 		return (target, method, objects) -> {
 			StringBuilder sb = new StringBuilder();
 			sb.append(target.getClass().getName());
-			sb.append(method.getName());
+			sb.append("::" + method.getName() + ":");
 			for (Object obj : objects) {
 				sb.append(obj.toString());
 			}
