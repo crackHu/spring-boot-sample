@@ -25,7 +25,7 @@ public class SpringBootSampleApplication {
 		return "hello " + getUser(name);
 	}
 	
-	@Cacheable
+	@Cacheable(value = "user", keyGenerator = "keyGenerator")
 	public User getUser(String name) {
 		User user = new User(name, "aa", "aa123456");
 	    System.out.println("若下面没出现“无缓存的时候调用”字样且能打印出数据表示测试成功");  

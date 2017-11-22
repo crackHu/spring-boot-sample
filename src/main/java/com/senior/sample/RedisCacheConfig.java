@@ -1,7 +1,5 @@
 package com.senior.sample;
 
-import java.lang.reflect.Method;
-
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
