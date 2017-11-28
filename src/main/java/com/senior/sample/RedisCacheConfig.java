@@ -18,6 +18,7 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
@@ -37,9 +38,9 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 		return (target, method, objects) -> {
 			StringBuilder sb = new StringBuilder();
 			sb.append(target.getClass().getName());
-			sb.append(method.getName());
+			sb.append(":" + method.getName());
 			for (Object obj : objects) {
-				sb.append(obj.toString());
+				sb.append("_").append(obj.toString());
 			}
 			return sb.toString();
 		};
@@ -48,7 +49,8 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 	@Bean
 	public CacheManager cacheManager(RedisTemplate redisTemplate) {
 		RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate);
-		redisCacheManager.setCacheNames(Arrays.asList(cacheNames));
+		// redisCacheManager.setCacheNames(Arrays.asList(cacheNames));
+		// redisCacheManager.setExpires(RedisKeys.EXPIRES);
 		redisCacheManager.setDefaultExpiration(defaultExpiration);
 		return redisCacheManager;
 	}
@@ -56,13 +58,14 @@ public class RedisCacheConfig extends CachingConfigurerSupport {
 	@Bean
 	public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
 		StringRedisTemplate template = new StringRedisTemplate(factory);
-		
+
 		Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
 		ObjectMapper om = new ObjectMapper();
 		om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
 		om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+		om.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 		jackson2JsonRedisSerializer.setObjectMapper(om);
-		
+
 		template.setValueSerializer(jackson2JsonRedisSerializer);
 		template.afterPropertiesSet();
 		return template;

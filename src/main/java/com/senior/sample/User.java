@@ -12,6 +12,11 @@ public class User {
 		super();
 	}
 
+	public User(String username) {
+		super();
+		this.username = username;
+	}
+
 	public User(String email, String username, String password) {
 		super();
 		this.email = email;
@@ -23,4 +28,5 @@ public class User {
 	public String toString() {
 		return "User [email=" + email + ", username=" + username + ", password=" + password + "]";
 	}
+	
 }
