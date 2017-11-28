@@ -23,7 +23,7 @@ public class SpringBootSampleApplication {
 		return "hello docker";
 	}
 
-	@GetMapping("/{name}")
+	@GetMapping("/redis/{name}")
 	public String hello(@PathVariable String name) {
 		return "hello " + userService.getUser(name);
 	}
