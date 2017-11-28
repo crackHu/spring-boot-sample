@@ -1,14 +1,16 @@
 package com.senior.sample;
 
-import java.io.Serializable;
-
-public class User implements Serializable {
+public class User {
 
 	private String email;
-	
+
 	private String username;
-	
+
 	private String password;
+
+	public User() {
+		super();
+	}
 
 	public User(String email, String username, String password) {
 		super();

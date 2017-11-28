@@ -1,8 +1,7 @@
 package com.senior.sample;
 
-import java.util.concurrent.TimeUnit;
+import java.io.Serializable;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SetOperations;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -60,6 +58,16 @@ public class SpringBootSampleApplicationTests {
 		redisTemplate.opsForCluster();
 		GeoOperations opsForGeo = redisTemplate.opsForGeo();
 		redisTemplate.opsForHyperLogLog();
+	}
+	
+	@Test
+	public void testGet() {
+		ValueOperations<Serializable, Object> operations = redisTemplate.opsForValue();
+		operations.set("test", new User("email", "username", "password"));
+        Object result = operations.get("test");
+        if (result instanceof User) {
+            System.out.println(result);
+        }
 	}
 
 }
