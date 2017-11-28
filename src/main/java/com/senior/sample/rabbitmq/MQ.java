@@ -15,7 +15,7 @@ public class MQ {
 
 	@Bean
 	public Queue helloQueue() {
-		return new Queue("hello");
+		return new Queue("helloQueue");
 	}
 
 	@Bean

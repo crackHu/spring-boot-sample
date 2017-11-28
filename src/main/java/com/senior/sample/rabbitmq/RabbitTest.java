@@ -16,6 +16,17 @@ public class RabbitTest {
 
 	@PostMapping("/hello")
 	public void hello() {
-		helloSender1.send();
+		helloSender1.send("hello1");
+	}
+
+	/**
+	 * 单生产者-多消费者
+	 */
+	@PostMapping("/oneToMany")
+	public void oneToMany() {
+		for (int i = 0; i < 10; i++) {
+			helloSender1.send("hellomsg: " + i);
+		}
+
 	}
 }
