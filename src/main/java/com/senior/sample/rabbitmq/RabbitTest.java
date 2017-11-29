@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.senior.sample.rabbitmq.sender.FanoutSender;
 import com.senior.sample.rabbitmq.sender.HelloSender1;
 import com.senior.sample.rabbitmq.sender.HelloSender2;
 import com.senior.sample.rabbitmq.sender.TopicSender;
@@ -22,6 +23,8 @@ public class RabbitTest {
 	private UserSender userSender;
 	@Autowired
 	private TopicSender topicSender;
+	@Autowired
+	private FanoutSender fanoutSender;
 
 	@PostMapping("/hello")
 	public void hello() {
@@ -63,5 +66,13 @@ public class RabbitTest {
 	@PostMapping("/topicTest")
 	public void topicTest() {
 		topicSender.send();
+	}
+
+	/**
+	 * fanout exchange类型rabbitmq测试
+	 */
+	@PostMapping("/fanoutTest")
+	public void fanoutTest() {
+		fanoutSender.send();
 	}
 }
