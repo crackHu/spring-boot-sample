@@ -20,7 +20,7 @@ public class MQ {
 
 	@Bean
 	public Queue userQueue() {
-		return new Queue("user");
+		return new Queue("userQueue");
 	}
 
 	// ===============以下是验证topic Exchange的队列==========

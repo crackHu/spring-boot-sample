@@ -1,4 +1,4 @@
-package com.senior.sample.rabbitmq;
+package com.senior.sample.rabbitmq.sender;
 
 import java.util.Date;
 
