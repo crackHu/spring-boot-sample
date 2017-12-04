@@ -8,6 +8,11 @@ import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * https://www.cnblogs.com/boshen-hzb/p/6841982.html
+ * dead letter: http://blog.csdn.net/i_vic/article/details/72742277
+ * Created by Hugo on 2017年12月5日
+ */
 @Configuration
 public class MQ {
 
