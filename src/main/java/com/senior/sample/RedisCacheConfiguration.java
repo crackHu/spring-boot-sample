@@ -1,7 +1,5 @@
 package com.senior.sample;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -25,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @EnableCaching
 @PropertySource("classpath:redis.properties")
 @SuppressWarnings("rawtypes")
-public class RedisCacheConfig extends CachingConfigurerSupport {
+public class RedisCacheConfiguration extends CachingConfigurerSupport {
 
 	@Value("${spring.redis.cache-names:}")
 	private String[] cacheNames;
