@@ -1,4 +1,4 @@
-package com.senior.sample.rabbitmq.sender;
+package com.senior.sample.manager.rabbitmq.sender;
 
 import java.util.UUID;
 

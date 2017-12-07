@@ -1,4 +1,4 @@
-package com.senior.sample;
+package com.senior.sample.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;

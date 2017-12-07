@@ -1,4 +1,4 @@
-package com.senior.sample.rabbitmq.receiver;
+package com.senior.sample.manager.rabbitmq.receiver;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

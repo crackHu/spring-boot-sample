@@ -1,16 +1,16 @@
-package com.senior.sample.rabbitmq;
+package com.senior.sample.manager.rabbitmq;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senior.sample.rabbitmq.sender.CallBackSender;
-import com.senior.sample.rabbitmq.sender.FanoutSender;
-import com.senior.sample.rabbitmq.sender.HelloSender1;
-import com.senior.sample.rabbitmq.sender.HelloSender2;
-import com.senior.sample.rabbitmq.sender.TopicSender;
-import com.senior.sample.rabbitmq.sender.UserSender;
+import com.senior.sample.manager.rabbitmq.sender.CallBackSender;
+import com.senior.sample.manager.rabbitmq.sender.FanoutSender;
+import com.senior.sample.manager.rabbitmq.sender.HelloSender1;
+import com.senior.sample.manager.rabbitmq.sender.HelloSender2;
+import com.senior.sample.manager.rabbitmq.sender.TopicSender;
+import com.senior.sample.manager.rabbitmq.sender.UserSender;
 
 @RestController
 @RequestMapping("/rabbit")

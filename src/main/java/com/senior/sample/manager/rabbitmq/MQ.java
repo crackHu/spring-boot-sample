@@ -1,4 +1,4 @@
-package com.senior.sample.rabbitmq;
+package com.senior.sample.manager.rabbitmq;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

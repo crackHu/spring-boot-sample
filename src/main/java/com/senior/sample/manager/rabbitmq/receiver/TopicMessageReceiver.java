@@ -1,16 +1,16 @@
-package com.senior.sample.rabbitmq.receiver;
+package com.senior.sample.manager.rabbitmq.receiver;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(queues = "fanout.A")
-public class FanoutReceiverA {
+@RabbitListener(queues = "topic.message")
+public class TopicMessageReceiver {
 
 	@RabbitHandler
 	public void process(String msg) {
-		System.out.println("FanoutReceiverA : " + msg);
+		System.out.println("topicMessageReceiver : " + msg);
 	}
 
 }
