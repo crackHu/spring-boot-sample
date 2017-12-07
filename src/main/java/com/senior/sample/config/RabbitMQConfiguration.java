@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 @PropertySource("classpath:rabbitmq.properties")
 public class RabbitMQConfiguration {
-	
-    private static Logger logger = LoggerFactory.getLogger(RabbitMQConfiguration.class); 
+
+	private static Logger logger = LoggerFactory.getLogger(RabbitMQConfiguration.class);
 
 	@Value("${spring.rabbitmq.host}")
 	private String host;
@@ -38,13 +38,13 @@ public class RabbitMQConfiguration {
 
 	@Bean
 	public ConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);  
-        connectionFactory.setUsername(username);  
-        connectionFactory.setPassword(password);  
-        connectionFactory.setVirtualHost(virtualHost);  
-        connectionFactory.setPublisherConfirms(publisherConfirms);  
-        logger.info("Create ConnectionFactory bean ...");  
-        return connectionFactory;  
+		CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host, port);
+		connectionFactory.setUsername(username);
+		connectionFactory.setPassword(password);
+		connectionFactory.setVirtualHost(virtualHost);
+		connectionFactory.setPublisherConfirms(publisherConfirms);
+		logger.info("Create ConnectionFactory bean ...");
+		return connectionFactory;
 	}
 
 	@Bean

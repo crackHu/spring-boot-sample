@@ -47,7 +47,7 @@ public class QueueConfiguration {
 		arguments.put("x-dead-letter-exchange", MQConstant.DEFAULT_EXCHANGE);
 		arguments.put("x-dead-letter-routing-key", MQConstant.DEFAULT_REPEAT_TRADE_QUEUE_NAME);
 		Queue queue = new Queue(MQConstant.DEFAULT_DEAD_LETTER_QUEUE_NAME, true, false, false, arguments);
-		logger.info("arguments: {}", queue.getArguments());
+		logger.info("DeadLetterQueue arguments: {}", queue.getArguments());
 		return queue;
 	}
 
