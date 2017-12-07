@@ -5,12 +5,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.senior.sample.manager.constant.MQConstant;
 import com.senior.sample.manager.rabbitmq.sender.CallBackSender;
 import com.senior.sample.manager.rabbitmq.sender.FanoutSender;
 import com.senior.sample.manager.rabbitmq.sender.HelloSender1;
 import com.senior.sample.manager.rabbitmq.sender.HelloSender2;
 import com.senior.sample.manager.rabbitmq.sender.TopicSender;
 import com.senior.sample.manager.rabbitmq.sender.UserSender;
+import com.senior.sample.manager.rabbitmq.service.MessageQueueService;
 
 @RestController
 @RequestMapping("/rabbit")
@@ -28,6 +30,8 @@ public class RabbitTest {
 	private FanoutSender fanoutSender;
 	@Autowired
 	private CallBackSender callBackSender;
+	@Autowired
+	private MessageQueueService messageQueueService;
 
 	@PostMapping("/hello")
 	public void hello() {
@@ -78,9 +82,17 @@ public class RabbitTest {
 	public void fanoutTest() {
 		fanoutSender.send();
 	}
-	
+
+	/**
+	 * callback
+	 */
 	@PostMapping("/callback")
-    public void callbak() {
-        callBackSender.send();
-    }
+	public void callbak() {
+		callBackSender.send();
+	}
+
+	@PostMapping("/demo")
+	public void demo() throws Exception {
+		messageQueueService.send(MQConstant.HELLO_QUEUE_NAME, "测试发送消息");
+	}
 }
