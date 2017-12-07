@@ -1,7 +1,7 @@
 package com.senior.sample.manager.constant;
 
 /**
- * @desc Rabbit消息队列相关常量
+ * @desc Rabbit 消息队列相关常量
  * @author Created by Hugo on 2017年12月7日
  */
 public final class MQConstant {

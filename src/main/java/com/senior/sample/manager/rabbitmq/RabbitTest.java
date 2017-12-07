@@ -95,4 +95,9 @@ public class RabbitTest {
 	public void demo() throws Exception {
 		messageQueueService.send(MQConstant.HELLO_QUEUE_NAME, "测试发送消息");
 	}
+
+	@PostMapping("/delay")
+	public void delay() throws Exception {
+		messageQueueService.send(MQConstant.HELLO_QUEUE_NAME, "测试延迟发送消息: " + System.currentTimeMillis(), 60000);
+	}
 }

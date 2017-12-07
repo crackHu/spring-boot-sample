@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.senior.sample.manager.modal.DLXMessage;
 
 /**
- * @desc JackSon工具类
+ * @desc JackSon 工具类
  * @author Created by Hugo on 2017年12月7日
  */
 public class JSONUtils {

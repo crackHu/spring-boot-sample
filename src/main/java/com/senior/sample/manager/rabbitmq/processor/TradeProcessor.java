@@ -24,6 +24,7 @@ public class TradeProcessor {
 	@RabbitHandler
 	public void process(String content) {
 		try {
+			System.out.println("TradeProcessor process: " + content + " at: " + System.currentTimeMillis());
 			DLXMessage message = JSONUtils.json2pojo(content, DLXMessage.class);
 			messageQueueService.send(message.getQueueName(), message.getContent());
 		} catch (Exception e) {
