@@ -14,6 +14,7 @@ import org.springframework.data.redis.core.SetOperations;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -68,6 +69,15 @@ public class SpringBootSampleApplicationTests {
         if (result instanceof User) {
             System.out.println(result);
         }
+	}
+	
+	@Test
+	public void testRest() {
+		String mpSendTmplUrl = "http://127.0.0.1:8080/PM-server/pcpatient/pc_patientList";
+		User user = new User("touser", "templateId", "data");
+		RestTemplate restTemplate = new RestTemplate();
+		User response = restTemplate.postForObject(mpSendTmplUrl, user, User.class);
+		System.out.println(response);
 	}
 
 }
