@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-boot-sample
+  # mycat http://blog.csdn.net/wang_jingj/article/details/54091898
+  datasource:
+    platform: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://117.48.202.155/information_schema?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false
+    username: root
+    password: 123
+    port: 3307
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
