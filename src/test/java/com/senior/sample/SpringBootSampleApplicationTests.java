@@ -73,11 +73,11 @@ public class SpringBootSampleApplicationTests {
 	
 	@Test
 	public void testRest() {
-		String mpSendTmplUrl = "http://127.0.0.1:8080/PM-server/pcpatient/pc_patientList";
-		User user = new User("touser", "templateId", "data");
-		RestTemplate restTemplate = new RestTemplate();
-		User response = restTemplate.postForObject(mpSendTmplUrl, user, User.class);
-		System.out.println(response);
+//		String mpSendTmplUrl = "http://127.0.0.1:8080/PM-server/pcpatient/pc_patientList";
+//		User user = new User("touser", "templateId", "data");
+//		RestTemplate restTemplate = new RestTemplate();
+//		User response = restTemplate.postForObject(mpSendTmplUrl, user, User.class);
+//		System.out.println(response);
 	}
 
 }
