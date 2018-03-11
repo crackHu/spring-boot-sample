@@ -1,5 +1,7 @@
 package com.senior.sample;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +18,7 @@ import com.senior.sample.service.TravelrecordService;
 @RestController
 @SpringBootApplication
 public class SpringBootSampleApplication {
-	
+
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -42,11 +44,11 @@ public class SpringBootSampleApplication {
 		service.findAll().forEach(salesman -> all.append(String.format("%s\n", salesman)));
 		return service.findAll();
 	}
-	
+
 	@GetMapping("/mycat/save")
 	public String mycatSave() {
 		Travelrecord salesman = new Travelrecord();
-		salesman.setName("电风扇");
+		salesman.setName("电风扇" + LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 		Long time = new Date().getTime();
 		salesman.setPhone(time.toString());
 		Travelrecord save = service.save(salesman);
