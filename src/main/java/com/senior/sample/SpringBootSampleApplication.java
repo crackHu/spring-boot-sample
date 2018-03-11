@@ -1,6 +1,7 @@
 package com.senior.sample;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -36,10 +37,10 @@ public class SpringBootSampleApplication {
 	}
 
 	@GetMapping("/mycat/find-all")
-	public String mycatFindAll() {
+	public List<Travelrecord> mycatFindAll() {
 		StringBuilder all = new StringBuilder();
 		service.findAll().forEach(salesman -> all.append(String.format("%s\n", salesman)));
-		return all.toString();
+		return service.findAll();
 	}
 	
 	@GetMapping("/mycat/save")
