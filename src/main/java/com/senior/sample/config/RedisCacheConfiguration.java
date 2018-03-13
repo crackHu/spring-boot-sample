@@ -44,6 +44,15 @@ public class RedisCacheConfiguration extends CachingConfigurerSupport {
 		};
 	}
 
+//	@Bean
+//	public CacheManager cacheManager(RedisTemplate redisTemplate) {
+//		RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate);
+//		// redisCacheManager.setCacheNames(Arrays.asList(cacheNames));
+//		// redisCacheManager.setExpires(RedisKeys.EXPIRES);
+//		redisCacheManager.setDefaultExpiration(defaultExpiration);
+//		return redisCacheManager;
+//	}
+
 	@Bean
 	public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
 		StringRedisTemplate template = new StringRedisTemplate(factory);
