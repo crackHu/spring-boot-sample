@@ -25,6 +25,7 @@ public class SpringBootSampleApplication {
 	private TravelrecordService service;
 
 	public static void main(String[] args) {
+		System.setProperty("es.set.netty.runtime.available.processors", "false");
 		SpringApplication.run(SpringBootSampleApplication.class, args);
 	}
 
