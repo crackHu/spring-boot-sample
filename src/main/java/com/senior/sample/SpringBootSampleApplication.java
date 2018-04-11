@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,8 @@ public class SpringBootSampleApplication {
 	private UserService userService;
 	@Autowired
 	private TravelrecordService service;
+	@Autowired
+	private RedisTemplate redisTemplate;
 
 	public static void main(String[] args) {
 		System.setProperty("es.set.netty.runtime.available.processors", "false");
@@ -37,6 +40,14 @@ public class SpringBootSampleApplication {
 	@GetMapping("/redis/{name}")
 	public String hello(@PathVariable String name) {
 		return "hello " + userService.getUser(name);
+	}
+	
+	@GetMapping("/redis/queue")
+	public String queue() {
+		redisTemplate.opsForList().leftPush("queue", 1);
+		redisTemplate.opsForList().leftPush("queue", 2);
+		Object rightPop = redisTemplate.opsForList().rightPop("queue");
+		return rightPop.toString();
 	}
 
 	@GetMapping("/mycat/find-all")
@@ -56,3 +67,5 @@ public class SpringBootSampleApplication {
 		return save.toString();
 	}
 }
+
+
