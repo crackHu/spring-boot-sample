@@ -10,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senior.sample.domain.Travelrecord;
@@ -21,9 +20,8 @@ import com.senior.sample.service.TravelrecordService;
 public class SpringBootSampleApplication {
 
 	@Autowired
-	private UserService userService;
-	@Autowired
 	private TravelrecordService service;
+	@SuppressWarnings("rawtypes")
 	@Autowired
 	private RedisTemplate redisTemplate;
 
@@ -36,12 +34,8 @@ public class SpringBootSampleApplication {
 	public String hello() {
 		return "hello docker";
 	}
-
-	@GetMapping("/redis/{name}")
-	public String hello(@PathVariable String name) {
-		return "hello " + userService.getUser(name);
-	}
 	
+	@SuppressWarnings("unchecked")
 	@GetMapping("/redis/queue")
 	public String queue() {
 		redisTemplate.opsForList().leftPush("queue", 1);
