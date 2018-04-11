@@ -28,8 +28,8 @@ public class Swagger2 {
 	
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
-				.title("Spring Boot swagger2")
-				.description("API document center")
+				.title("🔸spring-boot-samplexing🔸")
+				.description("🔸spring-boot-samplexing🔸 API document center")
 				.termsOfServiceUrl("https://hustack.com")
 				.version("1.0")
 				.contact(new Contact("hustack","https://hustack.com","296717367@qq.com")) 

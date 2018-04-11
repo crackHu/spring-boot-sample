@@ -7,15 +7,16 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://117.48.202.155:8066/TESTDB?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=false
-
+    username: root
+    password: 654321
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
   mvc:
     throw-exception-if-no-handler-found: true
-  resources: 
-    add-mappings: false
+#  resources: 
+#    add-mappings: false
   data: 
     elasticsearch:
       cluster-name: elasticsearch_cluster
