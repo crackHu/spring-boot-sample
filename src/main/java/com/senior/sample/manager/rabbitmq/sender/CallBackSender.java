@@ -22,6 +22,7 @@ public class CallBackSender implements RabbitTemplate.ConfirmCallback {
 		this.rabbitTemplatenew.convertAndSend("exchange", "topic.messages", msg, correlationData);
 	}
 
+	@Override
 	public void confirm(CorrelationData correlationData, boolean ack, String cause) {
 		System.out.println("callbakck confirm: " + correlationData.getId());
 	}

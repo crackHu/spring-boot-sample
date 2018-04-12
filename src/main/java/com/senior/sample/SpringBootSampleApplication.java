@@ -32,7 +32,7 @@ public class SpringBootSampleApplication {
 
 	@GetMapping("/")
 	public String hello() {
-		return "hello docker";
+		return "hello docker14";
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -55,7 +55,7 @@ public class SpringBootSampleApplication {
 	public String mycatSave() {
 		Travelrecord salesman = new Travelrecord();
 		salesman.setName("电风扇" + LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-		Long time = new Date().getTime();
+		Long time = System.currentTimeMillis();
 		salesman.setPhone(time.toString());
 		Travelrecord save = service.save(salesman);
 		return save.toString();

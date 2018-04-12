@@ -9,8 +9,10 @@ import com.senior.sample.domain.Travelrecord;
 
 public interface TravelrecordRepository extends JpaRepository<Travelrecord, Long> {
 	
-	Travelrecord save(Travelrecord salesman);
+	@Override
+    Travelrecord save(Travelrecord salesman);
 
-	@Query(value = "select * from travelrecord limit 0,18", nativeQuery = true)
+	@Override
+    @Query(value = "select * from travelrecord limit 0,18", nativeQuery = true)
 	List<Travelrecord> findAll();
 }

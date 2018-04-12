@@ -31,7 +31,8 @@ public class RedisCacheConfiguration extends CachingConfigurerSupport {
 	@Value("${spring.redis.default-expiration:21600}")
 	private int defaultExpiration;
 
-	@Bean
+	@Override
+    @Bean
 	public KeyGenerator keyGenerator() {
 		return (target, method, objects) -> {
 			StringBuilder sb = new StringBuilder();
